@@ -1,0 +1,23 @@
+{
+  "app": {
+    "title": "ZaUI F&B",
+    "textColor": "white",
+    "headerColor": "#ffffff",
+    "statusBar": "transparent",
+    "actionBarHidden": true,
+    "hideAndroidBottomNavigationBar": false,
+    "hideIOSSafeAreaBottom": true,
+    "selfControlLoading": false
+  },
+  "listCSS": [],
+  "listSyncJS": [],
+  "listAsyncJS": [],
+  "template": {
+    "name": "zaui-market",
+    "apiUrl": "",
+    "oaIDtoOpenChat": "435410394336919662",
+    "logoUrl": "https://www.tinotech.app/storage/uploads/logo/logo-default.jpg",
+    "shopName": "Tino miniShop",
+    "shopAddress": "Hoàng Trọng Mậu, Mỹ Đình, Nam Từ Liêm, Hà Nội"
+  }
+}
