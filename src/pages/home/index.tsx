@@ -1,14 +1,20 @@
 import Banners from "./banners";
+import BestSellerSection from "./best-sellers";
 import Category from "./category";
 import FlashSales from "./flash-sales";
+import NewsSection from "./news";
+import SubscribeBox from "./subscribe";
 
 const HomePage: React.FunctionComponent = () => {
   return (
-    <div className="min-h-full space-y-2 py-2">
-      <Category />
-      <div className="bg-section">
+    <div className="min-h-full">
+      {/* <Category /> */}
+      {/* <div className="bg-section"> */}
         <Banners />
-      </div>
+        <SubscribeBox />
+        <BestSellerSection />
+        <NewsSection />
+      {/* </div> */}
       <FlashSales />
     </div>
   );

@@ -9,7 +9,7 @@ export interface SectionProps {
 export default function Section(props: PropsWithChildren<SectionProps>) {
   return (
     <div
-      className={"bg-section ".concat(props.className ?? "")}
+      // className={"bg-section ".concat(props.className ?? "")}
       onClick={props.onClick}
     >
       <div className="flex items-center justify-between px-2">

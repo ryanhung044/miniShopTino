@@ -40,7 +40,7 @@ export default function Header() {
         backgroundImage: `url(${headerIllus})`,
       }}
     >
-      <div className="w-full min-h-12 pr-[90px] flex py-2 space-x-2 items-center">
+      <div className="w-full min-h-12  flex py-2 space-x-2 items-center">
         {handle?.logo ? (
           <>
             <img

@@ -64,7 +64,7 @@ export default function Carousel(props: CarouselProps) {
 
   return (
     <div className="overflow-hidden" ref={emblaRef}>
-      <div className="flex space-x-2 mt-2 mx-4">
+      <div className="flex">
         {props.slides.map((slide, i) => (
           <div key={i} className="flex-none basis-full">
             {slide}
