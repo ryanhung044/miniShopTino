@@ -18,6 +18,13 @@ import ListProduct from "./pages/Client/product/listProduct";
 import LoginForm from "./pages/Client/LoginForm/login";
 import ProductDetailPage2 from "./pages/Client/product/productDetail";
 import CartPage2 from "./pages/Client/cart/cartpage";
+import OrderHistory from "./pages/Client/order/orderHistory";
+import OrderHistoryAffilate from "./pages/Client/order/orderHistoryAffilate";
+import AgencyPage from "./pages/Client/agency/agencyPage";
+import Referral from "./pages/Client/agency/referrer";
+import AmbassadorPage from "./pages/Client/ambassador/ambassadorPage";
+import MemberPage from "./pages/Client/member/memberPage";
+import CProfilePage from "./pages/Client/profilepage/profile";
 const router = createBrowserRouter(
   [
     {
@@ -37,17 +44,17 @@ const router = createBrowserRouter(
         title: "Danh mục",
         noFooter: true,
       },
-    },{
+    }, {
       path: "/client-login",
-      element: <LoginForm  />,
+      element: <LoginForm />,
       handle: {
         search: true,
         title: "Đăng nhập",
         noFooter: true,
       },
-    },{
+    }, {
       path: "/productDetail/:slug",
-      element: <ProductDetailPage2  />,
+      element: <ProductDetailPage2 />,
       handle: {
         search: true,
         title: "Chi tiết sản phẩm",
@@ -63,6 +70,70 @@ const router = createBrowserRouter(
         noFooter: true,
       },
     },
+    {
+      path: "/client-orderhistory",
+      element: <OrderHistory />,
+      handle: {
+        search: true,
+        title: "Trang chủ",
+        noFooter: true,
+      },
+    },
+    {
+      path: "/orders/history/affiliate",
+      element: <OrderHistoryAffilate />,
+      handle: {
+        search: true,
+        title: "Trang chủ",
+        noFooter: true,
+      },
+    },
+    {
+      path: "/agency",
+      element: <AgencyPage />,
+      handle: {
+        search: true,
+        title: "Trang chủ",
+        noFooter: true,
+      },
+    },
+    {
+      path: "/referral",
+      element: <Referral />,
+      handle: {
+        search: true,
+        title: "Trang chủ",
+        noFooter: true,
+      },
+    },
+    {
+      path: "/ambassador",
+      element: <AmbassadorPage />,
+      handle: {
+        search: true,
+        title: "Trang chủ",
+        noFooter: true,
+      },
+    },
+    {
+      path: "/users/member",
+      element: <MemberPage />,
+      handle: {
+        search: true,
+        title: "Trang chủ",
+        noFooter: true,
+      },
+    },
+    {
+      path: "/c-profile",
+      element: <CProfilePage />,
+      handle: {
+        search: true,
+        title: "Trang chủ",
+        noFooter: true,
+      },
+    },
+
     {
       path: "/",
       element: <Layout />,
