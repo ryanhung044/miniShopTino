@@ -1,0 +1,221 @@
+body {
+  background-color: #f2f4f8 !important;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+}
+
+.header-fixed {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #fff;
+  padding: 10px 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.banner img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.member-box,
+.wallet-box,
+.product-select-box {
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  /* margin-top: 15px; */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.wallet-amount {
+  font-weight: bold;
+  color: #152379;
+}
+
+.btn-rounded {
+  border-radius: 50px;
+}
+
+
+.badge-noti {
+  font-size: 10px;
+  position: absolute;
+  top: -3px;
+  right: -6px;
+}
+
+.nav-icons {
+  position: relative;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background-color: #152379;
+  border-bottom-left-radius: 70px;
+  border-bottom-right-radius: 70px;
+}
+
+swiper-container {
+  width: 100%;
+}
+
+swiper-slide {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: auto;
+  margin-bottom: 10px;
+  border: 3px solid #ddd;
+}
+
+.name {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.sales {
+  color: #d97706;
+  font-weight: bold;
+}
+
+.top-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.container{
+  padding-bottom: 60px;
+}
+
+.pad-10{
+  padding: 10px 0;
+}
+
+.zaui-bottom-navigation-content{
+  background-color:unset;
+  position: unset;
+}
+
+.zaui-bottom-navigation-item{
+  color:#ccc;
+  opacity: 0.6;
+}
+
+.zaui-bottom-navigation-item-active{
+  color:#fff !important;
+  opacity: 1 !important;
+}
+
+
+
+.header-fixed {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #fff;
+  padding: 10px 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.banner img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.member-box,
+.wallet-box,
+.product-select-box {
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.wallet-amount {
+  /* font-size: 28px; */
+  font-weight: bold;
+  color: #152379;
+}
+
+.btn-rounded {
+  border-radius: 50px;
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #152379;
+  border-top: 1px solid #ddd;
+  z-index: 999;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+}
+
+.bottom-nav a {
+  color: white;
+  text-align: center;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.bottom-nav a .fa {
+  display: block;
+  font-size: 20px;
+  margin-bottom: 3px;
+}
+
+.badge-noti {
+  font-size: 10px;
+  position: absolute;
+  top: -3px;
+  right: -6px;
+}
+
+.nav-icons {
+  position: relative;
+}
+
+
+
+.top-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  
+  .btn-category {
+    color: #152379;
+    border: 1px solid #152379;
+    background-color: transparent;
+  }
+  
+  .btn-category.active,
+  .btn-category:hover {
+    background-color: #152379;
+    color: #fff;
+  }
+  

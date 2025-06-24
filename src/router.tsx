@@ -13,9 +13,56 @@ import ShippingAddressPage from "./pages/cart/shipping-address";
 import StationsPage from "./pages/cart/stations";
 import OrderDetailPage from "./pages/orders/detail";
 import ProfileEditorPage from "./pages/profile/editor";
-
+import ClientHomePage from "./pages/Client/homepage/homepage";
+import ListProduct from "./pages/Client/product/listProduct";
+import LoginForm from "./pages/Client/LoginForm/login";
+import ProductDetailPage2 from "./pages/Client/product/productDetail";
+import CartPage2 from "./pages/Client/cart/cartpage";
 const router = createBrowserRouter(
   [
+    {
+      path: "/home2",
+      element: <ClientHomePage />,
+      handle: {
+        search: true,
+        title: "Trang chủ",
+        noFooter: true,
+      },
+    },
+    {
+      path: "/all-products",
+      element: <ListProduct />,
+      handle: {
+        search: true,
+        title: "Danh mục",
+        noFooter: true,
+      },
+    },{
+      path: "/login",
+      element: <LoginForm  />,
+      handle: {
+        search: true,
+        title: "Đăng nhập",
+        noFooter: true,
+      },
+    },{
+      path: "/productDetail/:slug",
+      element: <ProductDetailPage2  />,
+      handle: {
+        search: true,
+        title: "Chi tiết sản phẩm",
+        noFooter: true,
+      },
+    },
+    {
+      path: "/cart2",
+      element: <CartPage2 />,
+      handle: {
+        search: true,
+        title: "Giỏ hàng",
+        noFooter: true,
+      },
+    },
     {
       path: "/",
       element: <Layout />,
