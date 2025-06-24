@@ -23,25 +23,26 @@ const createMiniAppShortcut = async () => {
   }
 };
 const Subscription: FC = () => {
-  const requestUserInfo = useRecoilCallback(
-    ({ snapshot }) =>
-      async () => {
-        const userInfo = await snapshot.getPromise(userState);
-        console.warn("Các bên tích hợp có thể sử dụng userInfo ở đây...", {
-          userInfo,
-        });
-      },
-    []
-  );
+  // const requestUserInfo = useRecoilCallback(
+  //   ({ snapshot }) =>
+  //     async () => {
+  //       const userInfo = await snapshot.getPromise(userState);
+  //       console.warn("Các bên tích hợp có thể sử dụng userInfo ở đây...", {
+  //         userInfo,
+  //       });
+  //     },
+  //   []
+  // );
 
   return (
-    <Box className="m-4 " onClick={requestUserInfo} style={{ paddingTop: '4rem' }}>
+    <Box className="m-4 "  style={{ paddingTop: '4rem' }}>
       <Box
         className="bg-green text-white rounded-xl p-4 space-y-2"
         style={{
           // backgroundImage: `url(${subscriptionDecor})`,
           backgroundPosition: "right 8px center",
           backgroundRepeat: "no-repeat",
+          background: "#183"
         }}
       >
         <Text.Title className="font-bold">Đăng ký thành viên</Text.Title>
@@ -150,7 +151,7 @@ const Other: FC = () => {
       ]
       : []),
     {
-      left: <i className="fa-brands fa-app-store-ios text-primary" style={{ fontSize: '1.2rem' }} />,
+      left: <i className="fab fa-app-store-ios text-primary" style={{ fontSize: '1.2rem' }} />,
       right: (
         <Box flex onClick={() => createMiniAppShortcut()}>
           <Text.Header className="flex-1 items-center font-normal">Tạo icon app trên màn hình chính</Text.Header>

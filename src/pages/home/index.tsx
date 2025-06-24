@@ -10,10 +10,10 @@ const HomePage: React.FunctionComponent = () => {
     <div className="min-h-full">
       {/* <Category /> */}
       {/* <div className="bg-section"> */}
-        <Banners />
-        <SubscribeBox />
-        <BestSellerSection />
-        <NewsSection />
+      <Banners />
+      <SubscribeBox />
+      <BestSellerSection />
+      <NewsSection />
       {/* </div> */}
       <FlashSales />
     </div>

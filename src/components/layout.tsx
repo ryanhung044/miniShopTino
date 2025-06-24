@@ -18,9 +18,15 @@ export default function Layout() {
       </div>
       <Footer />
       <Toaster
-        containerClassName="toast-container"
-        containerStyle={{
-          top: "calc(50% - 24px)",
+        position="bottom-center" // 👈 vị trí toast mong muốn
+        toastOptions={{
+          duration: 1000,
+          style: {
+            background: '#212121',
+            color: '#fff',
+            borderRadius: '8px',
+            padding: '12px 16px',
+          },
         }}
       />
       <FloatingCartPreview />

@@ -9,7 +9,7 @@ import Badge from "./badge";
 const NAV_ITEMS = [
   {
     name: "Trang chủ",
-    path: "/",
+    path: "/home",
     icon: HomeIcon,
   },
   {

@@ -1,4 +1,5 @@
 import React from "react";
+import toast from "react-hot-toast";
 import { followOA } from "zmp-sdk/apis";
 
 
@@ -6,12 +7,11 @@ export default function SubscribeBox() {
     const handleFollow = async () => {
         try {
             await followOA({
-                id: "xxxx",
+                id: "2228697592983419135",
             });
-            console.log("Theo dõi thành công");
+            toast.success("Theo dõi thành công");
         } catch (error) {
             console.log("Lỗi: " , error);
-
         };
     }
     return (

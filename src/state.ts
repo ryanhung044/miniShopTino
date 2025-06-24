@@ -53,10 +53,7 @@ export const userInfoState = atom<Promise<UserInfo>>(async (get) => {
   if (grantedUserInfo || isDev) {
     // Người dùng cho phép truy cập tên và ảnh đại diện
     const { userInfo } = await getUserInfo({});
-    const phone =
-      grantedPhoneNumber || isDev // Người dùng cho phép truy cập số điện thoại
-        ? await get(phoneState)
-        : "";
+    const phone = "";
     return {
       id: userInfo.id,
       name: userInfo.name,
@@ -70,29 +67,29 @@ export const userInfoState = atom<Promise<UserInfo>>(async (get) => {
 
 export const loadableUserInfoState = loadable(userInfoState);
 
-export const phoneState = atom(async () => {
-  let phone = "";
-  try {
-    const { token } = await getPhoneNumber({});
-    // Phía tích hợp làm theo hướng dẫn tại https://mini.zalo.me/documents/api/getPhoneNumber/ để chuyển đổi token thành số điện thoại người dùng ở server.
-    // phone = await decodeToken(token);
+// export const phoneState = atom(async () => {
+//   let phone = "";
+//   try {
+//     const { token } = await getPhoneNumber({});
+//     // Phía tích hợp làm theo hướng dẫn tại https://mini.zalo.me/documents/api/getPhoneNumber/ để chuyển đổi token thành số điện thoại người dùng ở server.
+//     // phone = await decodeToken(token);
 
-    // Các bước bên dưới để demo chức năng, phía tích hợp có thể bỏ đi sau.
-    toast(
-      "Đã lấy được token chứa số điện thoại người dùng. Phía tích hợp cần decode token này ở server. Giả lập số điện thoại 0912345678...",
-      {
-        icon: "ℹ",
-        duration: 10000,
-      }
-    );
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    phone = "0912345678";
-    // End demo
-  } catch (error) {
-    console.warn(error);
-  }
-  return phone;
-});
+//     // Các bước bên dưới để demo chức năng, phía tích hợp có thể bỏ đi sau.
+//     toast(
+//       "Đã lấy được token chứa số điện thoại người dùng. Phía tích hợp cần decode token này ở server. Giả lập số điện thoại 0912345678...",
+//       {
+//         icon: "ℹ",
+//         duration: 10000,
+//       }
+//     );
+//     await new Promise((resolve) => setTimeout(resolve, 1000));
+//     phone = "0912345678";
+//     // End demo
+//   } catch (error) {
+//     console.warn(error);
+//   }
+//   return phone;
+// });
 
 export const bannersState = atom(() =>
   requestWithFallback<string[]>("/banners", [])

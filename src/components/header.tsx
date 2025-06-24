@@ -47,16 +47,16 @@ export default function Header() {
               src={getConfig((c) => c.template.logoUrl)}
               className="flex-none w-8 h-8 rounded-full"
             />
-            <TransitionLink to="/stations" className="flex-1 overflow-hidden">
+            <TransitionLink to="#" className="flex-1 overflow-hidden">
               <div className="flex items-center space-x-1">
                 <h1 className="text-lg font-bold">
                   {getConfig((c) => c.template.shopName)}
                 </h1>
                 <Icon icon="zi-chevron-right" />
               </div>
-              <p className="overflow-x-auto whitespace-nowrap text-2xs">
+              {/* <p className="overflow-x-auto whitespace-nowrap text-2xs">
                 {getConfig((c) => c.template.shopAddress)}
-              </p>
+              </p> */}
             </TransitionLink>
           </>
         ) : (
@@ -82,7 +82,7 @@ export default function Header() {
               }
             }}
           />
-          <TransitionLink to="/home2?appId=1">
+          {/* <TransitionLink to="/home2?appId=1">
             {userInfo.state === "hasData" && userInfo.data ? (
               <img
                 className="w-8 h-8 rounded-full"
@@ -95,7 +95,7 @@ export default function Header() {
                 className={userInfo.state === "loading" ? "animate-pulse" : ""}
               />
             )}
-          </TransitionLink>
+          </TransitionLink> */}
         </div>
       )}
     </div>

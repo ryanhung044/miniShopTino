@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect } from 'react';
-// import Swiper from 'swiper';
 import Swiper from 'swiper';
 import 'swiper/swiper-bundle.css';
-
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { register } from 'swiper/element/bundle';
@@ -13,60 +11,62 @@ import { Link } from 'react-router-dom';
 import nativeStorage from '@/utils/nativeStorage';
 import { useRefAppIdEffect } from "./private/check-params";
 import '../css/index.css'
+import { useNavigate } from 'react-router-dom';
+import { getRouteParams } from "zmp-sdk/apis";
 
 register();
 interface AppSetting {
-  app_name: string;
-  description?: string;
-  logo_path: string;
-  favicon_path?: string;
+    app_name: string;
+    description?: string;
+    logo_path: string;
+    favicon_path?: string;
 }
 
 interface User {
-  id: number;
-  full_name: string;
-  avatar?: string;
-  app_id?: string;
-  [key: string]: any; // để tránh lỗi nếu có thêm field
+    id: number;
+    full_name: string;
+    avatar?: string;
+    app_id?: string;
+    [key: string]: any; // để tránh lỗi nếu có thêm field
 }
 
 interface Product {
-  id: number;
-  name: string;
-  slug: string;
-  thumbnail: string;
-  price: number;
-  sale_price: number;
-  stock: number;
-  category_id?: number;
+    id: number;
+    name: string;
+    slug: string;
+    thumbnail: string;
+    price: number;
+    sale_price: number;
+    stock: number;
+    category_id?: number;
 }
 
 interface Article {
-  id: number;
-  slug: string;
-  title: string;
-  image: string;
+    id: number;
+    slug: string;
+    title: string;
+    image: string;
 }
 
 interface Banner {
-  id: number;
-  image: string;
-  link: string;
-  title: string;
+    id: number;
+    image: string;
+    link: string;
+    title: string;
 }
 
 interface MenuItem {
-  id: number;
-  title: string;
-  link: string;
-  image?: string;
+    id: number;
+    title: string;
+    link: string;
+    image?: string;
 }
 
 interface ReferrerUser {
-  id: number;
-  name: string;
-  avatar_url?: string;
-  total_sales: number;
+    id: number;
+    name: string;
+    avatar_url?: string;
+    total_sales: number;
 }
 
 
@@ -125,18 +125,26 @@ const shareProduct = (name, link) => {
 };
 
 const ClientHomePage = () => {
+    const navigate = useNavigate();
     useRefAppIdEffect();
     const [banners, setBanners] = useState<Banner[]>([]);
-const [topProducts, setTopProducts] = useState<Product[]>([]);
-const [articles, setArticles] = useState<Article[]>([]);
-const [products, setProducts] = useState<Product[]>([]);
-const [menu1, setMenu] = useState<MenuItem[]>([]);
-const [finalTop, setFinalTop] = useState<ReferrerUser[]>([]);
-const [appSetting, setAppSetting] = useState<AppSetting | null>(null);
-const [user, setUser] = useState<User | null>(null);
+    const [topProducts, setTopProducts] = useState<Product[]>([]);
+    const [articles, setArticles] = useState<Article[]>([]);
+    const [products, setProducts] = useState<Product[]>([]);
+    const [menu1, setMenu] = useState<MenuItem[]>([]);
+    const [finalTop, setFinalTop] = useState<ReferrerUser[]>([]);
+    const [appSetting, setAppSetting] = useState<AppSetting | null>(null);
+    const [user, setUser] = useState<User | null>(null);
 
-
-    const fetchData = () => {
+    const fetchData = async () => {
+        try {
+            const { ref, app_id } = await getRouteParams();
+            console.log("ZMP SDK route params:", { ref, app_id });
+            if (ref) nativeStorage.setItem("referrer_id", ref);
+            if (app_id) nativeStorage.setItem("app_id", app_id);
+        } catch (err) {
+            console.error("Lỗi khi lấy getRouteParams:", err);
+        }
         const token = nativeStorage.getItem('access_token') || localStorage.getItem('access_token');
         const app_id = nativeStorage.getItem('app_id');
         console.log('app_id', app_id);
@@ -163,6 +171,7 @@ const [user, setUser] = useState<User | null>(null);
             })
             .catch(error => {
                 console.error('Lỗi khi gọi API:', error);
+                navigate('/home');
             });
     };
 

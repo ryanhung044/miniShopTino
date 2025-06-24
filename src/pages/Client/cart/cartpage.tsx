@@ -312,8 +312,8 @@ const CartPage2 = () => {
                         name,
                         phone,
                         address,
-                        // payment_method: 'COD', // Lưu method ZALOPAY / MOMO / BANK_SANDBOX
-                        payment_method: method, // Lưu method ZALOPAY / MOMO / BANK_SANDBOX
+                        payment_method: 'COD', // Lưu method ZALOPAY / MOMO / BANK_SANDBOX
+                        // payment_method: method, // Lưu method ZALOPAY / MOMO / BANK_SANDBOX
                         // sub_method: subMethod || null, // Lưu nếu có
                         cart,
                         referrer_id: referrerId,

@@ -36,7 +36,9 @@ const AgencyPage = () => {
     const [countOrderCompleted, setCountOrderCompleted] = useState(0);
     const [countUserReferrer, setCountUserReferrer] = useState(0);
     const [banners, setBanners] = useState<Banner[]>([]);
-    const token = nativeStorage.getItem('access_token') || localStorage.getItem('access_token');
+    const token = nativeStorage.getItem('access_token');
+    console.log(token);
+    
     const [hasHighValueCombo, setHasHighValueCombo] = useState(false);
     const [loading, setLoading] = useState(true);
 

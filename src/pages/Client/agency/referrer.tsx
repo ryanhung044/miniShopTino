@@ -1,24 +1,36 @@
-import { APP_URL }  from '../config';
-import React from 'react';
+import { API_URL, APP_URL } from '../config';
+import React, { useEffect, useState } from 'react';
 // import { nativeStorage } from 'zmp-sdk/apis';
 import nativeStorage from '@/utils/nativeStorage';
 import { getRouteParams } from "zmp-sdk/apis";
+import axios from 'axios';
 
-type ReferralProps = {
-    user: any;
-    appSetting: any;
-};
-const Referral = ({ user, appSetting }) => {
-    console.log(user);
-    const { ref } = getRouteParams();
+const Referral = () => {
+    const [user, setUser] = useState<any>({});
+    const token = nativeStorage.getItem('access_token');
+    
+    const { ref, app_id } = getRouteParams();
+    console.log(ref);
 
+    useEffect(() => {
+        axios.get(`${API_URL}/checkUser`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then(res => {
+            const dataUser = res.data;
+            setUser(dataUser.user)
+            console.log(user.id);
+        }
+        );
+
+        console.log(user);
+    }, []);
 
     const handleShare = () => {
         const userId = user?.id;
         const shareData = {
-            // title: 'Ứng dụng mua hàng trực tuyến',
-            // text: 'Tải app và nhận tới 600.000đ!',
-            url: APP_URL + '/referrer?ref=' + userId + 'app_id=' + user?.app_id ,
+            url: APP_URL + '/referrer?ref=' + userId + 'app_id=' + user?.app_id,
         };
 
         if (navigator.share) {
@@ -32,15 +44,15 @@ const Referral = ({ user, appSetting }) => {
         }
     };
 
-    // const params = new URLSearchParams(window.location.search);
-    // const ref = params.get('ref');
-
     if (ref) {
         nativeStorage.setItem('referrer_id', ref);
         // localStorage.setItem('referrer_id', ref);
         console.log('Referrer ID saved:', ref);
     }
 
+    if (app_id) {
+        nativeStorage.setItem('app_id', app_id);
+    }
 
     if (!user) {
         return (
