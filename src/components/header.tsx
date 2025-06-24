@@ -52,11 +52,11 @@ export default function Header() {
                 <h1 className="text-lg font-bold">
                   {getConfig((c) => c.template.shopName)}
                 </h1>
-                <Icon icon="zi-chevron-right" />
+                {/* <Icon icon="zi-chevron-right" /> */}
               </div>
-              <p className="overflow-x-auto whitespace-nowrap text-2xs">
+              {/* <p className="overflow-x-auto whitespace-nowrap text-2xs">
                 {getConfig((c) => c.template.shopAddress)}
-              </p>
+              </p> */}
             </TransitionLink>
           </>
         ) : (
@@ -82,7 +82,7 @@ export default function Header() {
               }
             }}
           />
-          <TransitionLink to="/profile">
+          {/* <TransitionLink to="/profile">
             {userInfo.state === "hasData" && userInfo.data ? (
               <img
                 className="w-8 h-8 rounded-full"
@@ -95,7 +95,7 @@ export default function Header() {
                 className={userInfo.state === "loading" ? "animate-pulse" : ""}
               />
             )}
-          </TransitionLink>
+          </TransitionLink> */}
         </div>
       )}
     </div>
