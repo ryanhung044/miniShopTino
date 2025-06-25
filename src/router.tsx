@@ -25,6 +25,12 @@ import Referral from "./pages/Client/agency/referrer";
 import AmbassadorPage from "./pages/Client/ambassador/ambassadorPage";
 import MemberPage from "./pages/Client/member/memberPage";
 import CProfilePage from "./pages/Client/profilepage/profile";
+import ArticleDetail from "./pages/Client/article/ArticleDetail";
+import WithdrawRequest from "./pages/Client/withdrawrequest/WithdrawRequest";
+import Infor from "./pages/Client/edituserform/infor";
+import ChatAI from "./pages/Client/chatai/chatAI";
+import ChatContentAI from "./pages/Client/chatai/chatContentAI";
+import BankInfoForm from "./pages/Client/bankinfoform/BankInfoForm";
 import PrivateRoute from "./PrivateRoute";
 import SignupPage from "./pages/Client/LoginForm/signup";
 import ClientLayout from "./ClientLayout";
@@ -424,7 +430,62 @@ const router = createBrowserRouter(
         noFooter: true,
       },
     },
-
+    // lỗi api * chưa có api 
+     {
+      path: "/articleDetail/:slug",
+      element: withPrivateClientLayout(<ArticleDetail />),
+      handle: {
+        search: true,
+        title: "Thay đổi thông tin",
+        noFooter: true,
+      },
+    },
+    {
+      path: "/c-account-info",
+      element: withPrivateClientLayout(<Infor />),
+      handle: {
+        search: true,
+        title: "Thay đổi thông tin",
+        noFooter: true,
+      },
+    },
+    {
+      path: "/with-draw",
+      element: withPrivateClientLayout(<WithdrawRequest />),
+      handle: {
+        search: true,
+        title: "Thay đổi thông tin",
+        noFooter: true,
+      },
+    },
+    {
+      path: "/bank-info",
+      element: withPrivateClientLayout(<BankInfoForm />),
+      handle: {
+        search: true,
+        title: "Thay đổi thông tin",
+        noFooter: true,
+      },
+    },
+    {
+      path: "/chatAI",
+      element: withPrivateClientLayout(<ChatAI />),
+      handle: {
+        search: true,
+        title: "Thay đổi thông tin",
+        noFooter: true,
+      },
+    },
+    {
+      path: "/contentAI",
+      element: withPrivateClientLayout(<ChatContentAI />),
+      handle: {
+        search: true,
+        title: "Thay đổi thông tin",
+        noFooter: true,
+      },
+    },
+    
     // Các route khác (admin/shop) giữ nguyên, ví dụ:
     {
       path: "/",

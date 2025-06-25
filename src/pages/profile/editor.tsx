@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CONFIG from "@/config";
+import { Page, Header } from "zmp-ui";
 import { userInfoKeyState, userInfoState } from "@/state";
 import { useAtomValue, useSetAtom } from "jotai";
 import toast from "react-hot-toast";
@@ -22,8 +23,6 @@ const ProfileEditorPage = () => {
     address: "",
     avatar: null as File | null,
   });
-
-  // ✅ Load dữ liệu user cũ từ API
   useEffect(() => {
     const token = nativeStorage.getItem("access_token");
     if (!token) return;
@@ -38,7 +37,7 @@ const ProfileEditorPage = () => {
         const dataUser = res.data.user;
         setFormData((prev) => ({
           ...prev,
-          name: dataUser.name || "",
+          full_name: dataUser.full_name || "",
           phone: dataUser.phone || "",
           email: dataUser.email || "",
           address: dataUser.address || "",
@@ -106,48 +105,57 @@ const ProfileEditorPage = () => {
   };
 
   return (
-    <form className="h-full flex flex-col justify-between" onSubmit={handleSubmit}>
-      <div className="bg-section p-4 grid gap-4">
-        <Input
-          name="full_name"
-          label="Họ tên"
-          value={formData.full_name}
-          onChange={handleChange}
-        />
-        <Input
-          name="phone"
-          label="Số điện thoại"
-          required
-          value={formData.phone}
-          onChange={handleChange}
-        />
-        <Input
-          name="email"
-          label="Email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-        />
-        <Input
-          name="address"
-          label="Địa chỉ"
-          placeholder="Nhập địa chỉ"
-          value={formData.address}
-          onChange={handleChange}
-        />
-        {/* <input
+
+    <Page className="h-full flex flex-col" style={{ paddingBottom: "80px" }}>
+      <Header
+        showBackIcon
+        title="Chỉnh sửa thông tin"
+        onBackClick={() => navigate(-1)} // Quay lại trang trước
+      />
+
+      <form className="h-full flex flex-col justify-between pt-5"  onSubmit={handleSubmit}>
+        <div className="bg-section p-4 grid gap-4">
+          <Input
+            name="full_name"
+            label="Họ tên"
+            value={formData.full_name}
+            onChange={handleChange}
+          />
+          <Input
+            name="phone"
+            label="Số điện thoại"
+            required
+            value={formData.phone}
+            onChange={handleChange}
+          />
+          <Input
+            name="email"
+            label="Email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
+          />
+          <Input
+            name="address"
+            label="Địa chỉ"
+            placeholder="Nhập địa chỉ"
+            value={formData.address}
+            onChange={handleChange}
+          />
+          {/* <input
           type="file"
           name="avatar"
           onChange={handleChange}
           className="mt-2"
         /> */}
-      </div>
-      <div className="p-6 pt-4 bg-section">
-        <Button htmlType="submit" fullWidth>
-          Lưu thay đổi
-        </Button>
-      </div>
-    </form>
+        </div>
+        <div className="p-6 pt-4 bg-section">
+          <Button htmlType="submit" fullWidth>
+            Lưu thay đổi
+          </Button>
+        </div>
+      </form>
+    </Page>
   );
 };
 
